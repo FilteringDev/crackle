@@ -10,7 +10,7 @@ export function IsGFPSchedule(Data: string) {
       description: MiniSchema.Schema.String().Refine(D => D === 'GFP Video Ad Schedule', 'Expected GFPSchedule description')
     }).Refine(H => !!H, 'Expected GFPSchedule head'),
     requestId: MiniSchema.Schema.String().Refine(R => UUIDRegExp.test(R), 'Expected GFPSchedule requestId'),
-    videoAdScheduleId: MiniSchema.Schema.String().Refine(V => /[A-Z]+_[A-Z]+_[A-Z]+_[A-Z]+/.test(V), 'Expected GFPSchedule videoAdScheduleId'),
+    videoAdScheduleId: MiniSchema.Schema.String().Refine(V => /[A-Z]+_[A-Z]+_[A-Z]+(_[A-Z]+)?/.test(V), 'Expected GFPSchedule videoAdScheduleId'),
     adBreaks: MiniSchema.Schema.Array(MiniSchema.Schema.Object({
       id: MiniSchema.Schema.String().Refine(I => /[A-Z]+-[0-9]+/.test(I), 'Expected GFPSchedule adBreaks.id'),
       startDelay: MiniSchema.Schema.Number().Refine(S => S >= 0, 'Expected GFPSchedule adBreaks.startDelay'),

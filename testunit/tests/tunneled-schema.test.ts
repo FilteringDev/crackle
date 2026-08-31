@@ -28,6 +28,45 @@ test('IsGFPSchedule returns true for valid GFPSchedule', () => {
   expect(IsGFPSchedule(JSON.stringify(Sample))).toBeTruthy()
 })
 
+test('IsGFPSchedule returns false for valid GFPSchedule at LCK VOD', () => {
+  const Sample = {
+    'head': {
+      'version': '0.0.1',
+      'description': 'GFP Video Ad Schedule'
+    },
+    'requestId': 'vas-a4f01b5c-dde0-478b-8a54-9cffbf881b95',
+    'videoAdScheduleId': 'CHZZK_NDP_SCH',
+    'adBreaks': [
+      {
+        'id': 'PREROLL-0',
+        'startDelay': 0,
+        'preFetch': 0,
+        'adUnitId': 'w_chzzk_naver_va',
+        'adSources': [
+          {
+            'id': 'PREROLL-0-0',
+            'withRemindAd': 0
+          }
+        ]
+      },
+      {
+        'id': 'MIDROLL-0',
+        'startDelay': 1800,
+        'preFetch': 10,
+        'adUnitId': 'w_chzzk_naver_va_mid',
+        'adSources': [
+          {
+            'id': 'MIDROLL-0-0',
+            'withRemindAd': 0
+          }
+        ]
+      }
+    ]
+  }
+
+  expect(IsGFPSchedule(JSON.stringify(Sample))).toBeTruthy()
+})
+
 test('IsNaverWaterfall returns true for valid NaverWaterfall Preroll', () => {
   const Sample = {
     'requestId': '2ca52d7d5d8311a8612178ad3e59b215',
