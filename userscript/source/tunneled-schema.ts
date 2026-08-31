@@ -1,6 +1,7 @@
 import * as MiniSchema from '@userscript/mini-schema.js'
 
 const UUIDRegExp = /[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}/i
+const NaverTrackingUrlRegExp = /^https:\/\/(?:siape\.veta|tivan)\.naver\.com\//
 
 export function IsGFPSchedule(Data: string) {
   return MiniSchema.Schema.Object({
@@ -32,19 +33,19 @@ export function IsNaverWaterfall(Data: string) {
     }).Refine(H => !!H, 'Expected NaverWaterfall head'),
     eventTracking: MiniSchema.Schema.LooseObject({
       ackImpressions: MiniSchema.Schema.Array(MiniSchema.Schema.Object({
-        url: MiniSchema.Schema.String().Refine(U => U.startsWith('https://siape.veta.naver.com/openrtb/nbackimp'), 'Expected NaverWaterfall eventTracking.ackImpressions.url to start with https://siape.veta.naver.com/openrtb/nbackimp')
+        url: MiniSchema.Schema.String().Refine(U => NaverTrackingUrlRegExp.test(U), 'Expected NaverWaterfall eventTracking.ackImpressions.url to be a Naver tracking URL')
       })).Refine(A => A.length > 0, 'Expected NaverWaterfall eventTracking.ackImpressions to have at least one element'),
       activeViewImpressions: MiniSchema.Schema.Array(MiniSchema.Schema.Object({
-        url: MiniSchema.Schema.String().Refine(U => U.startsWith('https://siape.veta.naver.com/openrtb/nbackimp'), 'Expected NaverWaterfall eventTracking.activeViewImpressions.url to start with https://siape.veta.naver.com/openrtb/nbackimp')
+        url: MiniSchema.Schema.String().Refine(U => NaverTrackingUrlRegExp.test(U), 'Expected NaverWaterfall eventTracking.activeViewImpressions.url to be a Naver tracking URL')
       })).Refine(A => A.length > 0, 'Expected NaverWaterfall eventTracking.activeViewImpressions to have at least one element'),
       clicks: MiniSchema.Schema.Array(MiniSchema.Schema.Object({
-        url: MiniSchema.Schema.String().Refine(U => U.startsWith('https://siape.veta.naver.com/openrtb/nbackimp'), 'Expected NaverWaterfall eventTracking.clicks.url to start with https://siape.veta.naver.com/openrtb/nbackimp')
+        url: MiniSchema.Schema.String().Refine(U => NaverTrackingUrlRegExp.test(U), 'Expected NaverWaterfall eventTracking.clicks.url to be a Naver tracking URL')
       })).Refine(A => A.length > 0, 'Expected NaverWaterfall eventTracking.clicks to have at least one element'),
       completions: MiniSchema.Schema.Array(MiniSchema.Schema.Object({
-        url: MiniSchema.Schema.String().Refine(U => U.startsWith('https://siape.veta.naver.com/openrtb/nbackimp'), 'Expected NaverWaterfall eventTracking.completions.url to start with https://siape.veta.naver.com/openrtb/nbackimp')
+        url: MiniSchema.Schema.String().Refine(U => NaverTrackingUrlRegExp.test(U), 'Expected NaverWaterfall eventTracking.completions.url to be a Naver tracking URL')
       })).Refine(A => A.length > 0, 'Expected NaverWaterfall eventTracking.completions to have at least one element'),
       attached: MiniSchema.Schema.Array(MiniSchema.Schema.Object({
-        url: MiniSchema.Schema.String().Refine(U => U.startsWith('https://siape.veta.naver.com/openrtb/nbackimp'), 'Expected NaverWaterfall eventTracking.attached.url to start with https://siape.veta.naver.com/openrtb/nbackimp')
+        url: MiniSchema.Schema.String().Refine(U => NaverTrackingUrlRegExp.test(U), 'Expected NaverWaterfall eventTracking.attached.url to be a Naver tracking URL')
       })).Refine(A => A.length > 0, 'Expected NaverWaterfall eventTracking.attached to have at least one element')
     }).Refine(E => !!E, 'Expected NaverWaterfall eventTracking'),
     adUnit: MiniSchema.Schema.String().Refine(A => !!A, 'Expected NaverWaterfall adUnit'),
@@ -52,7 +53,7 @@ export function IsNaverWaterfall(Data: string) {
     ads: MiniSchema.Schema.Array(MiniSchema.Schema.LooseObject({
       encrypted: MiniSchema.Schema.String().Refine(A => !!A, 'Expected NaverWaterfall ads.encrypted'),
       adProviderName: MiniSchema.Schema.String().Refine(A => !!A, 'Expected NaverWaterfall ads.adProviderName'),
-      adUrl: MiniSchema.Schema.String().Refine(A => !!A, 'Expected NaverWaterfall ads.adUrl')
+      adUrl: MiniSchema.Schema.String().Refine(A => !!A, 'Expected NaverWaterfall ads.adUrl').Optional()
     })).Refine(A => A.length > 0, 'Expected NaverWaterfall ads to have at least one element')
   }).SafeParse(JSON.parse(Data)).Success
 }

@@ -413,3 +413,180 @@ test('IsNaverWaterfall returns true for valid NaverWaterfall Midroll', () => {
 
   expect(IsNaverWaterfall(JSON.stringify(Sample))).toBeTruthy()
 })
+
+test('IsNaverWaterfall returns true for valid NaverWaterfall at LCK VOD', () => {
+  const Sample = {
+    'requestId': 'ea2dcb2bfd7d4349d9cc79cbcb44f995',
+    'head': {
+      'version': '0.0.1',
+      'description': 'Naver SSP Waterfall List'
+    },
+    'eventTracking': {
+      'ackImpressions': [
+        {
+          'url': 'https://tivan.naver.com/sc2/1/'
+        }
+      ],
+      'activeViewImpressions': [
+        {
+          'url': 'https://tivan.naver.com/sc2/2/'
+        }
+      ],
+      'clicks': [
+        {
+          'url': 'https://tivan.naver.com/sc2/3/'
+        }
+      ],
+      'completions': [
+        {
+          'url': 'https://tivan.naver.com/sc2/4/'
+        }
+      ],
+      'attached': [
+        {
+          'url': 'https://tivan.naver.com/sc2/10/'
+        }
+      ],
+      'renderedImpressions': [
+        {
+          'url': 'https://tivan.naver.com/sc2/11/'
+        }
+      ],
+      'viewableImpressions': [
+        {
+          'url': 'https://tivan.naver.com/sc2/12/'
+        }
+      ],
+      'loadErrors': [
+        {
+          'url': 'https://tivan.naver.com/sc2/91/'
+        }
+      ],
+      'startErrors': [
+        {
+          'url': 'https://tivan.naver.com/sc2/92/'
+        }
+      ],
+      'lazyRenderMediaFailed': [
+        {
+          'url': 'https://tivan.naver.com/sc2/93/'
+        }
+      ],
+      'mute': [
+        {
+          'url': 'https://tivan.naver.com/sc2/5/'
+        }
+      ],
+      'close': [
+        {
+          'url': 'https://tivan.naver.com/sc2/6/'
+        }
+      ]
+    },
+    'adUnit': 'w_chzzk_naver_va',
+    'randomNumber': 5,
+    'adDivId': 'player_layout',
+    'videoSkipMin': 5,
+    'videoSkipAfter': 5,
+    'ads': [
+      {
+        'encrypted': 'ktAdH2W3oegAWenFiKVvJsWggnqSRZXSsNLpvaZsKmkup',
+        'connectionType': 'C2S',
+        'adProviderType': 'OUTSIDE',
+        'adProviderName': 'Google IMA',
+        'layoutType': 'PIXEL',
+        'creativeType': 'VIDEO',
+        'renderType': 'GOOGLE_IMA',
+        'eventTracking': {
+          'ackImpressions': [
+            {
+              'url': 'https://siape.veta.naver.com/openrtb/nbackimp?eu='
+            },
+            {
+              'url': 'https://siape.veta.naver.com/openrtb/nbackimp?eu='
+            },
+            {
+              'url': 'https://siape.veta.naver.com/openrtb/nbackimp?eu='
+            }
+          ],
+          'attached': [],
+          'activeViewImpressions': [],
+          'renderedImpressions': [],
+          'viewableImpressions': [],
+          'clicks': [],
+          'vimp1px': [],
+          'vimp100': [],
+          'vimp100p': [],
+          'admute': [],
+          'advmute': [],
+          'like': [],
+          'unlike': [],
+          'close': [],
+          'bounce': [],
+          'priv': []
+        },
+        'adInfo': {
+          'timeout': 10000,
+          'requestSizes': [
+            {
+              'height': 720,
+              'width': 1280
+            }
+          ],
+          'sdkRequestInfo': {
+            'AD_UNIT_CODE': 'WEB_CHZZK_VIDEO',
+            'NETWORK_CODE': '217445452505',
+            'env': 'vp',
+            'gdfp_req': '1',
+            'output': 'vast',
+            'unviewed_position_start': '1'
+          }
+        }
+      },
+      {
+        'encrypted': '9s2Y9tVUKir4eNzh45eaWyRrXHLFF9U4UJsMiNeoVCPHP',
+        'connectionType': 'S2S',
+        'adProviderName': 'GFP',
+        'layoutType': 'PIXEL',
+        'creativeType': 'VIDEO',
+        'renderType': 'EMPTY',
+        'eventTracking': {
+          'ackImpressions': [
+            {
+              'url': 'https://siape.veta.naver.com/openrtb/nbackimp?eu='
+            },
+            {
+              'url': 'https://siape.veta.naver.com/openrtb/nbackimp?eu='
+            },
+            {
+              'url': 'https://siape.veta.naver.com/openrtb/nbackimp?eu='
+            }
+          ],
+          'attached': [],
+          'activeViewImpressions': [],
+          'renderedImpressions': [],
+          'viewableImpressions': [],
+          'clicks': [],
+          'vimp1px': [],
+          'vimp100': [],
+          'vimp100p': [],
+          'admute': [],
+          'advmute': [],
+          'like': [],
+          'unlike': [],
+          'close': [],
+          'bounce': [],
+          'priv': []
+        },
+        'adInfo': {
+          'responseSize': {
+            'height': 0,
+            'width': 0
+          }
+        }
+      }
+    ]
+  }
+
+  expect(IsNaverWaterfall(JSON.stringify(Sample))).toBeTruthy()
+})
