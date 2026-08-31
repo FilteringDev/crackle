@@ -21,8 +21,8 @@ const Win = typeof unsafeWindow !== 'undefined' ? unsafeWindow : window
 const UserscriptName = 'Crackle'
 
 import { OriginalUint8Array } from './intrinsics.js'
-import { IsGFPSchedule, IsNaverWaterfall } from './tunneled-schema.js'
-import { GFPScheduleBlock, NaverWaterfallBlock } from './resource.js'
+import { IsGFPSchedule, IsNaverWaterfall, IsSeoraksanEndpoint } from './tunneled-schema.js'
+import { GFPScheduleBlock, NaverWaterfallBlock, type SeoraksanEndpoint, SeoraksanEndpointBlock } from './resource.js'
 import { InstallXHRStatusMock, type XHRStatusMockRule } from './xhr-status-mock.js'
 import { UnionArrays } from './arrrayext.js'
 export { OriginalUint8Array }
@@ -43,6 +43,12 @@ Win.Uint8Array = new Proxy(Win.Uint8Array, {
           console.debug(`[${UserscriptName}] Replaced Naver Waterfall with a mock block`)
           // oxlint-disable-next-line typescript/no-unsafe-return 
           return Reflect.construct(Target, [Msg])
+        case IsSeoraksanEndpoint(TextDecoderInstance):
+          Msg = new TextEncoder().encode(JSON.stringify(SeoraksanEndpointBlock(JSON.parse(TextDecoderInstance) as SeoraksanEndpoint)))
+          console.debug(`[${UserscriptName}] Detected Seoraksan endpoint request with playerAdDisplayResponse`)
+          // oxlint-disable-next-line typescript/no-unsafe-return 
+          return Reflect.construct(Target, [Msg])
+
         default:
           return Reflect.construct(Target, Args)
       }

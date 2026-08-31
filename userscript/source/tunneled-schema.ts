@@ -56,3 +56,17 @@ export function IsNaverWaterfall(Data: string) {
     })).Refine(A => A.length > 0, 'Expected NaverWaterfall ads to have at least one element')
   }).SafeParse(JSON.parse(Data)).Success
 }
+
+export function IsSeoraksanEndpoint(Data: string): boolean {
+  return MiniSchema.Schema.LooseObject({
+    code: MiniSchema.Schema.Number().Refine(C => C === 200, 'Expected SeoraksanEndpoint code to be 200'),
+    content: MiniSchema.Schema.LooseObject({
+      playerAdDisplayResponse: MiniSchema.Schema.LooseObject({
+        preRoll: MiniSchema.Schema.Boolean(),
+        midRoll: MiniSchema.Schema.Boolean(),
+        postRoll: MiniSchema.Schema.Boolean().Refine(P => P === true, 'Expected SeoraksanEndpoint content.playerAdDisplayResponse.postRoll to be true')
+      }).Refine(P => !!P, 'Expected SeoraksanEndpoint content.playerAdDisplayResponse'),
+      livePlaybackJson: MiniSchema.Schema.Unknown()
+    }).Refine(C => !!C, 'Expected SeoraksanEndpoint content')
+  }).SafeParse(JSON.parse(Data)).Success
+}

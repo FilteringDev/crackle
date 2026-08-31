@@ -97,3 +97,28 @@ export function NaverWaterfallBlock() {
     'ads': []
     }
 }
+
+export interface SeoraksanEndpoint {
+  // oxlint-disable-next-line crackle/pascal-case
+  code: number
+  // oxlint-disable-next-line crackle/pascal-case
+  content: {
+    // oxlint-disable-next-line crackle/pascal-case
+    playerAdDisplayResponse: {
+      // oxlint-disable-next-line crackle/pascal-case
+      preRoll: boolean
+      // oxlint-disable-next-line crackle/pascal-case
+      midRoll: boolean
+      // oxlint-disable-next-line crackle/pascal-case
+      postRoll: boolean
+    }
+    // oxlint-disable-next-line crackle/pascal-case
+    livePlaybackJson: unknown
+  }
+}
+
+export function SeoraksanEndpointBlock(Data: SeoraksanEndpoint) {
+  Data.content.playerAdDisplayResponse.preRoll = false
+  Data.content.playerAdDisplayResponse.midRoll = false
+  return Data
+}
