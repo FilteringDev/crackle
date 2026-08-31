@@ -25,10 +25,19 @@ import { IsGFPSchedule, IsNaverWaterfall, IsSeoraksanEndpoint } from './tunneled
 import { GFPScheduleBlock, NaverWaterfallBlock, type SeoraksanEndpoint, SeoraksanEndpointBlock } from './resource.js'
 import { InstallXHRStatusMock, type XHRStatusMockRule } from './xhr-status-mock.js'
 import { UnionArrays } from './arrrayext.js'
+import { IsArrayBuffer, IsTypedArray, StartsWithBytes, type Uint8ArrayConstructorParameters } from './uint8array-utils.js'
 export { OriginalUint8Array }
 
+const StartWithBytesPrefix = new TextEncoder().encode('{"')
+
 Win.Uint8Array = new Proxy(Win.Uint8Array, {
-  construct(Target: typeof Uint8Array, Args: ConstructorParameters<typeof Uint8Array>) {
+  construct(Target: typeof Uint8Array, Args: Uint8ArrayConstructorParameters) {
+    if (!Args.length || typeof Args[0] === 'number') {
+      return Reflect.construct(Target, Args)
+    }
+    if (!(IsTypedArray(Args[0]) || IsArrayBuffer(Args[0])) || !StartsWithBytes(new OriginalUint8Array(Args[0]), StartWithBytesPrefix)) {
+      return Reflect.construct(Target, Args)
+    }
     try {
       let TextDecoderInstance = new TextDecoder('utf-8', { fatal: true }).decode(Reflect.construct(Target, Args))
       let Msg = new OriginalUint8Array()
