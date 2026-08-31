@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.13.1",
-    "@types/web": "^0.0.349",
+    "@types/web": "^0.0.354",
     "@violentmonkey/types": "^0.3.3",
     "oxlint": "^1.79.0",
     "oxlint-tsgolint": "^7.0.2001",
