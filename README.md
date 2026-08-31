@@ -2,7 +2,7 @@
 
 네이버 치지직 웹 사이트의 광고 제거 및 안티 애드블록 우회를 위한 유저스크립트입니다.
 
-치지직이 사용하는 GFP Video Ad Schedule 및 Naver SSP Waterfall 광고 응답을 인식해 광고가 없는 응답으로 대체합니다. 지원하지 않는 형식의 응답은 변경하지 않습니다.
+치지직이 사용하는 GFP Video Ad Schedule 및 Naver SSP Waterfall 광고 응답을 인식해 광고가 없는 호환 응답으로 대체합니다. 터널링된 `/seoraksan` endpoint 응답에서는 프리롤과 미드롤 광고 표시를 비활성화합니다. EasyList 계열의 요소 숨김과 Naver 광고 서버의 OPTIONS 요청에 대응해 안티 애드블록 동작도 보정합니다. 지원하지 않거나 유효하지 않은 형식의 응답은 변경하지 않습니다.
 
 
 > [!IMPORTANT]
