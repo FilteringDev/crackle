@@ -1,7 +1,8 @@
 {
   "extends": "../tsconfig.json",
   "include": [
-    "tests/**/*.test.ts"
+    "tests/**/*.test.ts",
+    "tests/**/*.bench.ts"
   ],
   "compilerOptions": {
     "types": ["node"],

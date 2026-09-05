@@ -8,20 +8,20 @@
     "debug": "tsx source/debug.ts"
   },
   "dependencies": {
-    "@types/node": "^24.12.2"
+    "@types/node": "^24.13.3"
   },
   "devDependencies": {
     "@adguard/agtree": "^4.2.1",
     "@npmcli/package-json": "^8.0.0",
     "@types/npmcli__package-json": "^4.0.4",
-    "@typescriptprime/parsing": "^2.0.1",
+    "@typescriptprime/parsing": "^2.0.2",
     "@typescriptprime/securereq": "^2.1.0",
     "chokidar": "^5.0.0",
-    "esbuild": "^0.28.0",
-    "oxlint": "^1.79.0",
+    "esbuild": "^0.28.2",
+    "oxlint": "^1.81.0",
     "oxlint-tsgolint": "^7.0.2001",
-    "tsx": "^4.21.0",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2",
-    "zod": "^4.4.3"
+    "zod": "^4.5.4"
   }
 }
