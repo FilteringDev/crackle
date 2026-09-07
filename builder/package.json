@@ -8,7 +8,7 @@
     "debug": "tsx source/debug.ts"
   },
   "dependencies": {
-    "@types/node": "^24.13.3"
+    "@types/node": "^26.4.1"
   },
   "devDependencies": {
     "@adguard/agtree": "^4.2.1",
