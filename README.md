@@ -16,6 +16,16 @@
 
 [Discord 봇](https://discord.com/oauth2/authorize?client_id=1543001264776814723) 또는 Telegram `@filteringdev_noti_bot`을 통해 업데이트 알림을 받을 수 있습니다.
 
+## 면책 조항 (Disclaimer)
+
+Crackle Userscript is a free, non-commercial project.
+The developer does not receive any economic profit, compensation, or commercial benefit from creating, maintaining, or distributing this userscript.
+By installing and using this userscript, you acknowledge and accept all risks associated with its use, including (but not limited to) potential account penalties, restrictions, or other disadvantages that may result from its operation.
+
+Crackle Userscript는 무료 비상업적 프로젝트입니다.
+개발자는 이 유저스크립트의 제작, 유지 관리 또는 배포를 통해 어떠한 경제적 이익, 보상 또는 상업적 혜택도 받지 않습니다.
+이 유저스크립트를 설치하고 사용함으로써 귀하는 계정 제재, 제한 또는 작동으로 인해 발생할 수 있는 기타 불이익을 포함하되 이에 국한되지 않는 사용과 관련된 모든 위험을 인지하고 수용합니다.
+
 
 ## 설치
 
