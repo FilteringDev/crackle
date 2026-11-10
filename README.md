@@ -39,7 +39,9 @@ https://cdn.jsdelivr.net/npm/@filteringdev/crackle@latest/dist/crackle.user.js
 
 ### 설치하는 법
 
-- [Violentmonkey](https://addons.mozilla.org/ko/firefox/addon/violentmonkey/) - Firefox 브라우저 확장
+Firefox 및 Chromium 기반 브라우저에서는 **Violentmonkey**를, macOS·iOS·iPadOS의 Safari에서는 **wBlock**을 권장합니다. **Tampermonkey는 권장하지 않습니다.**
+
+- [Violentmonkey](https://violentmonkey.github.io/get-it/) (권장) - Firefox 및 Chromium 기반 브라우저 확장
 	1. `Dashboard`를 엽니다.
 	2. `New` 버튼을 누릅니다.
 	3. `Install from URL` 버튼을 누릅니다.
@@ -59,21 +61,20 @@ https://cdn.jsdelivr.net/npm/@filteringdev/crackle@latest/dist/crackle.user.js
 - AdGuard for Android
 	1. [빠른 시작 URL](https://cdn.jsdelivr.net/npm/@filteringdev/crackle@latest/dist/crackle.user.js)을 클릭하여 설치합니다.
 
-- AdGuard for iOS
-
-	AdGuard for iOS는 현재 유저스크립트를 지원하지 않지만, [Userscripts](https://apps.apple.com/kr/app/userscripts/id1463298887)이나 [wBlock](https://apps.apple.com/kr/app/wblock/id6746388723) 앱을 대안으로 사용할 수 있습니다.
+- [wBlock](https://apps.apple.com/app/wblock/id6746388723) (권장) - macOS·iOS·iPadOS Safari
 
 	<details>
-	<summary>iOS에서 Userscripts로 설치하기</summary>
+	<summary>Safari에서 wBlock으로 설치하기</summary>
 
-	1. [Userscripts 앱](https://apps.apple.com/kr/app/userscripts/id1463298887)을 설치합니다.
-	2. Safari 설정에서 Userscripts 확장을 활성화하고 `기타 웹 사이트` 권한을 허용합니다.
-		 - iOS 18 이상: `시스템 설정` > `앱` > `Safari` > `확장 프로그램`
-		 - iOS 17 이하: `시스템 설정` > `Safari` > `확장 프로그램`
-	3. Safari에서 [빠른 시작 URL](https://cdn.jsdelivr.net/npm/@filteringdev/crackle@latest/dist/crackle.user.js)을 엽니다.
-	4. Safari 주소 막대의 확장 프로그램 아이콘을 누르고 Userscripts를 선택합니다.
-	5. 설치 버튼을 누른 뒤, 열린 팝업을 끝까지 스크롤하고 설치를 완료합니다.
-	6. 치지직을 열고 있는 탭으로 돌아가 새로고침합니다.
+	1. wBlock 앱을 설치하고 실행한 뒤 초기 설정 안내를 따릅니다.
+	2. Safari 확장 프로그램 설정에서 **wBlock Scripts**를 활성화하고 모든 웹 사이트에서 실행할 권한을 허용합니다.
+		 - macOS: `Safari` > `설정` > `확장 프로그램`
+		 - iOS·iPadOS 18 이상: `설정` > `앱` > `Safari` > `확장 프로그램`
+		 - iOS·iPadOS 17 이하: `설정` > `Safari` > `확장 프로그램`
+	3. wBlock 앱의 `Userscripts` 화면에서 추가 메뉴(`+`) > `Userscript` > `URL` > `Single URL`을 선택합니다.
+	4. [빠른 시작 URL](https://cdn.jsdelivr.net/npm/@filteringdev/crackle@latest/dist/crackle.user.js)을 입력하고 `Next`를 누릅니다.
+	5. 메타데이터를 확인한 뒤 `Add`를 눌러 스크립트를 추가하고 활성화합니다.
+	6. Safari에서 치지직을 열고 있는 탭으로 돌아가 새로고침합니다.
 
 	</details>
 
